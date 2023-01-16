@@ -43,7 +43,6 @@ class MyArray {
   }
 
   unshift(item) {
-    debugger;
     if(!item){
       return this.length;
     }
