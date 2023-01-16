@@ -37,8 +37,19 @@ class MySingleListLinked {
     this.tail = this.head;
     this.length = 1;
   }
-
+  append(value) {
+    const newNode = new Node(value);
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
 }
 
 
-let MySingleListLinked = new MySingleListLinked(1);
+let singly = new MySingleListLinked(1);
+console.log(singly.append(2));
+console.log(singly.append(3));
+console.log(singly.append(4));
+console.log(singly.append(5));
+console.log(singly.append(6));
