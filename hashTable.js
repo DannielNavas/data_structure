@@ -30,6 +30,30 @@ class Hastable {
     }
     return undefined;
   }
+  delete(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
+    if (currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++){
+        if (currentBucket[i][0] === key) {
+          const deleted = currentBucket[i];
+          currentBucket.splice(i, 1);
+          return deleted;
+        }
+      }
+    }
+    return undefined;
+  }
+
+  getAllKeys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
+  }
 }
 
 // TODO: se indica que genere 50 espacios para guardar los datos
