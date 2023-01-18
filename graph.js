@@ -32,3 +32,22 @@
   // 2:  [1, 1, 0, 1],
   // 3:  [0, 1, 1, 0]
 // };
+
+class Graph {
+  constructor() {
+    this.nodes = 0;
+    this.adjacentList = {};
+  }
+  addVertex(nodes) {
+    this.adjacentList[nodes] = [];
+    this.nodes++;
+  }
+  addEdge(node1, node2) {
+    //unidirectional
+    this.adjacentList[node1].push(node2);
+    //bidirectional
+    this.adjacentList[node2].push(node1);
+  }
+}
+
+const myGraph = new Graph();
